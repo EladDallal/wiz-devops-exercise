@@ -15,7 +15,7 @@ jobs:
     env:
       ECR_REGISTRY: 047719620374.dkr.ecr.us-west-2.amazonaws.com
       IMAGE_NAME: tasky
-      IMAGE_TAG: v21
+      IMAGE_TAG: v22
 
     steps:
       - name: Checkout repo
