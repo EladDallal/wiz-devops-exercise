@@ -62,7 +62,7 @@ resource "aws_eks_cluster" "eks" {
   }
   
   tags = {
-    Environment = "dev1"
+    Environment = "dev2"
   }
 
   depends_on = [
