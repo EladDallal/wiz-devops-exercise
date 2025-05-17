@@ -31,7 +31,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t $ECR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG \
-            -f tasky/Dockerfile tasky
+            -f ./tasky/Dockerfile ./tasky
 
       - name: Push Docker image
         run: |
