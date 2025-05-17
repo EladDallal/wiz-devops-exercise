@@ -17,7 +17,7 @@ spec:
       serviceAccountName: tasky-admin
       containers:
       - name: tasky
-        image: 047719620374.dkr.ecr.us-west-2.amazonaws.com/tasky:v21
+        image: 047719620374.dkr.ecr.us-west-2.amazonaws.com/tasky:v22
         ports:
         - containerPort: 8080
         env:
