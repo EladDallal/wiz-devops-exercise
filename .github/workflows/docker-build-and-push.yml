@@ -22,6 +22,7 @@ jobs:
 
       - name: Build and push Docker image
         env:
+          AWS_REGION: us-west-2
           ECR_REGISTRY: 047719620374.dkr.ecr.us-west-2.amazonaws.com
           ECR_REPOSITORY: tasky
           IMAGE_TAG: v21
