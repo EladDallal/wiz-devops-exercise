@@ -30,7 +30,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t 047719620374.dkr.ecr.us-west-2.amazonaws.com/tasky:v21 -f wiz-dev-env/eks-sandbox/tasky/Dockerfile wiz-dev-env/eks-sandbox/tasky
+          docker build -t $ECR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG \ -f tasky/Dockerfile tasky
 
       - name: Push Docker image
         run: |
