@@ -1,0 +1,31 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'tasky/**'
+      - '.github/workflows/docker-build-and-push.yml'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log in to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build and push Docker image
+        env:
+          ECR_REGISTRY: 047719620374.dkr.ecr.us-west-2.amazonaws.com
+          ECR_REPOSITORY: tasky
+          IMAGE_TAG: v21
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./tasky
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
