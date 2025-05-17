@@ -15,7 +15,7 @@ jobs:
     env:
       ECR_REGISTRY: 047719620374.dkr.ecr.us-west-2.amazonaws.com
       IMAGE_NAME: tasky
-      IMAGE_TAG: v20
+      IMAGE_TAG: v21
 
     steps:
       - name: Checkout repo
@@ -35,5 +35,5 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push 047719620374.dkr.ecr.us-west-2.amazonaws.com/tasky:v21
+          docker push $ECR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
 
