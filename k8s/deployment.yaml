@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tasky-deployment
+  labels:
+    app: tasky
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tasky
+  template:
+    metadata:
+      labels:
+        app: tasky
+    spec:
+      serviceAccountName: tasky-admin
+      containers:
+      - name: tasky
+        image: 047719620374.dkr.ecr.us-west-2.amazonaws.com/tasky:v21
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MONGODB_URI
+          value: "mongodb://54.212.85.102:27017/tasky?authSource=admin"
+        - name: SECRET_KEY
+          value: "changeme"
+        - name: DB_NAME
+          value: "tasky"
+        - name: DB_PASSWORD
+          value: "SuperSecret123!"
+        - name: JWT_SECRET
+          value: "VeryInsecureKey456"
