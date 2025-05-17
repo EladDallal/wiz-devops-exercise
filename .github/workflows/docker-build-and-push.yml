@@ -30,7 +30,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t 047719620374.dkr.ecr.us-west-2.amazonaws.com/tasky:v21 -f tasky/Dockerfile tasky
+          docker build -t 047719620374.dkr.ecr.us-west-2.amazonaws.com/tasky:v21 -f eks-sandbox/tasky/Dockerfile eks-sandbox/tasky
 
       - name: Push Docker image
         run: |
